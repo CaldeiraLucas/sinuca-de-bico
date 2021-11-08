@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+        <title>Sinuca de Bico - Reserva</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Bree+Serif" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style_reserva.css">
+        <link rel="stylesheet" href="css/header_footer.css">
+        <link rel="stylesheet" href="css/style_box.css">
+    </head>
+
+    <body>
+    
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <img src="img/logo sinuca de bico.png">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria- expanded="false">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="sobre.html">Sobre</a></li>
+                            <li><a href="sanduiche.html">Cardápio</a></li>
+                            <li><a href="Reserva.html">Reserva</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+        </header>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+
+                    <!------------- Calendário ------------->
+                    <div class="app-container" ng-app="dateTimeApp" ng-controller="dateTimeCtrl as ctrl" ng-cloak>
+
+                        <div date-picker datepicker-title="Faça Sua Reserva" picktime="true" pickdate="true" pickpast="false" mondayfirst="false" custom-message="Você selecionou:" selecteddate="ctrl.selected_date" updatefn="ctrl.updateDate(newdate)">
+
+                            <div class="datepicker" ng-class="{
+                                        'am': timeframe == 'am',
+                                        'pm': timeframe == 'pm',
+                                        'compact': compact
+                                    }">
+                                <div class="datepicker-header">
+                                    <div class="datepicker-title" ng-if="datepicker_title">{{ datepickerTitle }}</div>
+                                    <div class="datepicker-subheader">{{ customMessage }} {{ selectedDay }} {{ monthNames[localdate.getMonth()] }} {{ localdate.getDate() }}, {{ localdate.getFullYear() }}</div>
+                                </div>
+                                <div class="datepicker-calendar">
+                                    <div class="calendar-header">
+                                        <div class="goback" ng-click="moveBack()" ng-if="pickdate">
+                                            <svg width="30" height="30">
+                                                    <path fill="none" stroke="#0DAD83" stroke-width="3" d="M19,6 l-9,9 l9,9"/>
+                                                </svg>
+                                        </div>
+                                        <div class="current-month-container">{{ currentViewDate.getFullYear() }} {{ currentMonthName() }}</div>
+                                        <div class="goforward" ng-click="moveForward()" ng-if="pickdate">
+                                            <svg width="30" height="30">
+                                                    <path fill="none" stroke="#0DAD83" stroke-width="3" d="M11,6 l9,9 l-9,9" />
+                                                </svg>
+                                        </div>
+                                    </div>
+                                    <div class="calendar-day-header">
+                                        <span ng-repeat="day in days" class="day-label">{{ day.short }}</span>
+                                    </div>
+                                    <div class="calendar-grid" ng-class="{false: 'no-hover'}[pickdate]">
+                                        <div ng-class="{'no-hover': !day.showday}" ng-repeat="day in month" class="datecontainer" ng-style="{'margin-left': calcOffset(day, $index)}" track by $index>
+                                            <div class="datenumber" ng-class="{'day-selected': day.selected }" ng-click="selectDate(day)">
+                                                {{ day.daydate }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="timepicker" ng-if="picktime == 'true'">
+                                    <div ng-class="{'am': timeframe == 'am', 'pm': timeframe == 'pm' }">
+                                        <div class="timepicker-container-outer" selectedtime="time" timetravel>
+                                            <div class="timepicker-container-inner">
+                                                <p class="horario_reserva">Horário da Reserva:</p>
+                                                <div class="timeline-container" ng-mousedown="timeSelectStart($event)" sm-touchstart="timeSelectStart($event)">
+                                                    <div class="current-time">
+                                                        <div class="actual-time">{{ time }}</div>
+                                                    </div>
+                                                    <div class="timeline">
+                                                    </div>
+                                                    <div class="hours-container">
+                                                        <div class="hour-mark" ng-repeat="hour in getHours() track by $index"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="display-time">
+                                                    <div class="decrement-time" ng-click="adjustTime('decrease')">
+                                                        <svg width="24" height="24">
+                                                                <path stroke="white" stroke-width="2" d="M8,12 h8"/>
+                                                            </svg>
+                                                    </div>
+                                                    <div class="time" ng-class="{'time-active': edittime.active}">
+                                                        <input type="text" class="time-input" ng-model="edittime.input" ng-keydown="changeInputTime($event)" ng-focus="edittime.active = true; edittime.digits = [];" ng-blur="edittime.active = false" />
+                                                        <div class="formatted-time">{{ edittime.formatted }}</div>
+                                                    </div>
+                                                    <div class="increment-time" ng-click="adjustTime('increase')">
+                                                        <svg width="24" height="24">
+                                                                <path stroke="white" stroke-width="2" d="M12,7 v10 M7,12 h10"/>
+                                                            </svg>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!------------- Modal Dados Reserva ------------->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Preencha os dados</h4>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <form>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputName2">Nome Completo:</label>
+                                                        <input type="text" class="form-control" id="exampleInputName2" placeholder="João Paulo">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail2">E-mail</label>
+                                                        <input type="email" class="form-control" id="exampleInputEmail2" placeholder="jane.doe@example.com">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label for="exampleInputEmail2">Celular:</label>
+                                                        <input type="tel" class="form-control bfh-phone" id="exampleInputEmail2" placeholder="(21) XXXXX-XXXX">
+                                                    </div>
+                                                </form>
+
+                                                <div class="form-group">
+                                                    <label for="sel1">Número de Pessoas</label>
+                                                    <select class="form-control" id="sel1">
+                                                    <option>1 pessoa</option>
+                                                    <option>2 pessoas</option>
+                                                    <option>3 pessoas</option>
+                                                    <option>4 pessoas</option>
+                                                    <option>5 pessoas</option>
+                                                    <option>6 pessoas</option>
+                                                    <option>7 pessoas</option>
+                                                    <option>8 pessoas</option>
+                                                    <option>9 pessoas</option>
+                                                    <option>10 pessoas</option>
+                                                    <option>11 pessoas</option>
+                                                    <option>12 pessoas</option>
+                                                    <option>13 pessoas</option>
+                                                    <option>14 pessoas</option>
+                                                    <option>15 pessoas</option>
+                                                    <option>16 pessoas</option>
+                                                    <option>17 pessoas</option>
+                                                    <option>18 pessoas</option>
+                                                    <option>19 pessoas</option>
+                                                    <option>20 pessoas</option>
+                                                    <option>+20 pessoas</option>
+                                                  </select>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                <button class="btn btn-success" data-toggle="modal" data-target="#modalConfirm" data-dismiss="modal">Reservar</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="buttons-container">
+                                    <div class="save-button" id="myBtn">Avançar</div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="modalConfirm" class="modal fade" role="dialog">
+                        <div class="modal-dialog modal-sm">
+
+                            <!-- Modal Sucesso-->
+                            <div class="modal-content">
+                                <div class="modal-header btn-success">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h5 class="modal-title modal-sm">Sinuca de Bico</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Obrigado por realizar sua reserva!</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="row programacao">
+                <section class="descricao">
+                    <h3 class="titulo">Domingo</h3>
+                    <p>Open de Churrasco</p>
+                    <p>Leve 6 e pague 3 Buds ou Stella</p>
+                    <p>Guarnições liberados</p>
+                </section>
+
+                <section class="descricao">
+                    <h3 class="titulo">Segunda</h3>
+                    <p>Dose Dupla de Caipirinha e Caipivodka</p>
+                    <p>Leve 6 e pague 3 Buds ou Stella</p>
+                    <p>Sinuca de R$16 por R$12</p>
+                </section>
+
+                <section class="descricao">
+                    <h3 class="titulo">Terça</h3>
+                    <p>Hora Feliz</p>
+                    <p>Dose Dupla de Devassa Puro Malte</p>
+                    <p>Entrada Grátis</p>
+                </section>
+
+                <section class="descricao">
+                    <h3 class="titulo">Quarta</h3>
+                    <p>Festa sem Parar</p>
+                    <p>Shot Grátis para os 50 Primeiros</p>
+                    <p>Música ao Vivo</p>
+                </section>
+
+                <section class="descricao">
+                    <h3 class="titulo">Quinta</h3>
+                    <p>Drinks Todo Vapor</p>
+                    <p>Drinks Especiais por Junior Barman</p>
+                    <p>Até às 23h Karaokê Liberado</p>
+                </section>
+
+                <section class="descricao">
+                    <h3 class="titulo">Sexta</h3>
+                    <p>Churrasco dos Amigos</p>
+                    <p>Casal Apenas R$50</p>
+                    <p>Original e Heineken 600ml R$9</p>
+                </section>
+
+                <section class="descricao">
+                    <h3 class="titulo">Sábado</h3>
+                    <p>Sábado Show</p>
+                    <p>Leve 6 e pague 3 Buds ou Stella</p>
+                    <p>Mariachis, Tequileiros</p>
+                </section>
+            </div>
+            
+        </div>
+
+
+           <!-----------------------------FOOTER---------------------------------------------->
+        <footer>
+            <div class="container">
+                <section class="row">
+                    <div class="col-md-12">
+                        <main class="flex-centralizado">
+                            <div class="footerEsq">
+                                <h5>Contato:</h5>
+                                <p>(21) 2541-2145</p>
+                                <h5>Endereço:</h5>
+                                <p>Rua Riachuelo 260, Lapa, Rj / 20230-010</p>
+                            </div>
+                            <div class="footerDir">
+                                <section class="imagensFooter">
+                                    <i class="fa fa-facebook-square fa-2x"></i>
+                                    <i class="fa fa-twitter-square fa-2x"></i>
+                                    <i class="fa fa-camera-retro fa-2x"></i>
+                                </section>
+                                <h5>Horários de funcionamento:</h5>
+                                <p>Seg a Qui: 14:00-20:00</p>
+                                <p>Sex a Dom: 14:00-00:00</p>
+                            </div>
+                        </main>
+                    </div>
+                </section>
+            </div>
+        </footer>
+
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js'></script>
+        <script src="js/javascript_cal.js"></script>
+        <script src="js/javascript_box.js"></script>
+    </body>
+</html>

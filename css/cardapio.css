@@ -1,0 +1,103 @@
+body{
+    font-family: 'Bree Serif', serif;
+}
+
+h1{
+    font-size: 23px;
+    font-weight: bold;
+}
+h2{
+    font-size:20px;
+}
+h3{
+    font-size:15px;
+}
+
+/*NAV*/
+nav span a{
+    border-bottom: 1px solid black;
+}
+nav{
+    margin-top:10px;
+    margin-bottom:30px;
+    text-align: center;
+}
+nav a{
+    padding-bottom:3px;
+    color:black;
+}
+a:hover { 
+    border-bottom: 1px solid black;
+    color:black;
+    text-decoration: none;
+}
+a:active { 
+   border-bottom: 1px solid black;
+}
+.carousel-inner>.item>img {
+    margin: 0 auto;
+}
+
+/*PRODUTO*/
+.produto1{
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.produto img{
+    margin:auto;
+}
+
+.produto h2{
+    margin:auto;
+}
+
+.produtofinal{
+    text-align: center;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+
+.produtofinal img{
+    margin:auto;
+}
+
+/*CONTEÚDO*/
+.conteudo p{
+    font-family: 'Open Sans', sans-serif;
+    margin-top: 5px;    
+    padding:0 20%;
+}
+
+.conteudo h2{
+    margin-bottom:20px;
+}
+
+@media screen and (max-width: 767px) {
+    /* Regras para os Breakpoints SM e superiores */
+    nav a{
+        margin-left:10px;
+    }
+    .produto1{
+        border-bottom: 1px dashed black;
+    }
+        .produto2{
+        border-bottom: 1px dashed black;
+    }
+    .produto img{
+        width:80%;
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    /* Regras para os Breakpoints SM e superiores */
+    nav a{
+        margin-left:40px;
+    }    
+    .produto img{
+        width:300px;
+    }
+
+}
