@@ -1,0 +1,45 @@
+.descricao {
+    background-color: #8c1d4c;
+    font-size: 10px;
+    padding: 0px 15px 15px 15px;
+    text-align: center;
+    color: #FFA630;
+    margin-top: 50px;
+    border-radius: 0px 0px 5px 5px;
+    flex-basis: 14%;
+}
+
+.descricao h3{
+	margin-bottom: 15px;
+}
+
+.descricao p{
+	margin: 0px;
+}
+
+.programacao{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.titulo {
+	color: white;
+    font-size: 15px;
+}
+
+.hoje{
+    background: #FFA630;
+    color: #4a2053;
+}
+
+
+@media only screen and (max-width: 960px){
+    .descricao {
+        flex-basis: 100%;
+        margin: 10px 15px;
+}
+    .app-container{
+        margin-bottom: 25px;
+    }
+}
