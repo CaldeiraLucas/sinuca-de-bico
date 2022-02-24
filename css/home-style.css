@@ -1,49 +1,5 @@
 /* Folha de estilo referente à página Home; Escrita por Lucas Caldeira */
 
-body{
-    color:black;
-	padding-top: 70px;
-	overflow-x: hidden;
-	font-size: 14px;
-}
-
-a {
-	text-decoration: none;
-	color: white;
-}
-
-a:hover {
-	text-decoration: none;
-	color: #d8841a;
-}
-
-h1, h2, h3, h4, h5 {
-	font-family: 'Bree Serif', serif;
-}
-
-p {
-	font-family: 'Open Sans', sans-serif;
-	font-size: 1.25em;
-	margin: 0;
-}
-
-.btn {
-	border: none;
-	border-radius: 4px;
-	transition: .3s;
-	font-size: 1.15em;
-}
-
-.btn-default:hover {
-	background: #d8841a;
-	color: white;
-	transition: .3s;
-}
-
-.row {
-	margin: 0;
-}
-
 article.container {
 	text-align: center;
 	padding: 0;
@@ -76,22 +32,8 @@ article.container {
 .events, .promo {
 	margin-top: 40px;
 	margin-bottom: 40px;
-	background: #ffead2;
 }
 
-.events h1, .promo h1{
-	font-size: 1.8em;
-	margin: 0;
-	margin-bottom: 10px;
-}
-
-.carousel {
-	padding: 0;
-}
-
-.carousel-inner {
-	padding: 0;
-}
 
 .carousel-inner img {
 	width: 100%;
@@ -109,12 +51,12 @@ article.container {
 	padding: 0;
 	margin: 0;
 	bottom: 0;
-	text-shadow: 2px 2px 7px black;
+	text-shadow: 2px 2px 7px black, 2px 2px 7px black;
 	color: white;
 }
 
 .carousel-caption p {
-	margin-top: 2px;
+	margin: 0;
 }
 
 .desktop {
@@ -143,21 +85,17 @@ article.container {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-	background: #8c1d4c;
-	color: #ffa630;
+	/* background: #8c1d4c;
+	color: #ffa630; */
 }
 
-@media screen and (max-width: 375px) and (min-width: 320px){	
+@media screen and (max-width: 415px) {	
 	.banner {
 		padding: 10% 0;
 	}
 
 	.banner img {
 		width: 80px;
-	}
-
-	.banner p {
-		font-size: 1.15em;
 	}
 	
 	.desktop {
@@ -172,59 +110,19 @@ article.container {
 		padding: 0 20px;
 	}
 
-	.events p, .promo p {
-		font-size: 1.15em;
-	}
-
-	.carousel {
-		padding: 0;
-	}
-
-	.carousel-inner {
-		padding: 0;
-	}
-
 	.carousel-inner img {
 		width: 100%;
 	}
-
-	.card .carousel-caption h1{
-		padding: 25% 0;
-		text-shadow: 2px 2px 7px black;
-		text-align: center;
-	}
-	
 	
 	.carousel-caption {
-		padding: 5% 0;
-		text-shadow: 2px 2px 7px black;
-	}
-
-	.carousel-caption h1, .reserva h1 {
-		font-size: 24px;
-		text-align: center;
-	}
-
-	.carousel-caption h2{
-	    font-family: 'Open Sans', sans-serif;
-		font-size: 16px;
-		font-weight: bold;
-		margin-bottom: -5%;
-	}
-
-	.carousel-caption h3, .reserva h3{
-	    font-family: 'Open Sans', sans-serif;
-		font-size: 16px;
+		padding: 0 20px;
 	}
 
 	.carousel-indicators {
 		bottom: -2%;
 	}
 	
-	.events .carousel-caption h1 {
-		font-size: 24px;
-		padding: 22% 0;
-	} 
+
 	
 	.reserva {
 		background-color: rgba(0,0,0,0.4);
@@ -241,7 +139,7 @@ article.container {
 
 }
 
-@media screen and (max-width: 667px) and (min-width: 376px){
+/* @media screen and (max-width: 667px) and (min-width: 376px){
 	.container {
 		padding: 0;
 		margin: 0;
@@ -347,7 +245,7 @@ article.container {
 		text-shadow: 2px 1px 5px black;
 	}	
 	
-}
+} */
 
 @media screen and (max-width: 768px) and (min-width: 668px){	
 	.container {
@@ -474,7 +372,7 @@ article.container {
 	}
 }
 
-@media screen and (max-width: 1024px) and (min-width: 769px){	
+/* @media screen and (max-width: 1024px) and (min-width: 769px){	
 	.container {
 		padding: 0;
 		margin: 0;
@@ -600,4 +498,4 @@ article.container {
 	}
 }
 
-
+ */
