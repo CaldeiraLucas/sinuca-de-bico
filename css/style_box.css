@@ -1,7 +1,7 @@
 .descricao {
     background-color: #8c1d4c;
     font-size: 10px;
-    padding: 0px 15px 15px 15px;
+    padding: 15px;
     text-align: center;
     color: #FFA630;
     margin-top: 50px;
@@ -34,10 +34,10 @@
 }
 
 
-@media only screen and (max-width: 960px){
+@media only screen and (max-width: 541px){
     .descricao {
         flex-basis: 100%;
-        margin: 10px 15px;
+        margin: 5px 0;
 }
     .app-container{
         margin-bottom: 25px;

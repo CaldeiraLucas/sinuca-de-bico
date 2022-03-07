@@ -1,5 +1,7 @@
-.container {
-    margin-top: 50px;
+
+
+.col-xs-12 {	
+	padding: 0;
 }
 
 .app-container {
@@ -669,4 +671,17 @@ margin: auto;
 .datepicker.compact .buttons-container {
   position: relative;
   float: right;
+}
+
+ @media screen and (max-width: 415px) {	
+	article.container {
+
+    padding: 0 20px;
+	}
+}
+
+@media screen and (min-width: 416px) and (max-width: 769px) {	
+	article.container {
+    padding: 0 20px;
+	}
 }

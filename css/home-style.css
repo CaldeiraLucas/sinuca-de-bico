@@ -3,6 +3,7 @@
 article.container {
 	text-align: center;
 	padding: 0;
+	margin-top: 70px;
 }
 
 .banner {
@@ -30,8 +31,8 @@ article.container {
 }
 
 .events, .promo {
-	margin-top: 40px;
-	margin-bottom: 40px;
+	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 
@@ -51,7 +52,7 @@ article.container {
 	padding: 0;
 	margin: 0;
 	bottom: 0;
-	text-shadow: 2px 2px 7px black, 2px 2px 7px black;
+	text-shadow: 0px 0px 7px black, 0px 0px 7px black;
 	color: white;
 }
 
@@ -67,10 +68,11 @@ article.container {
 
 .desktop div {
 	overflow: hidden;
-	height: 270px;
+	height: 250px;
 }
 
 .desktop div img {
+	height: 100%;
 	width: 100%;
 }
 
@@ -89,7 +91,15 @@ article.container {
 	color: #ffa630; */
 }
 
-@media screen and (max-width: 415px) {	
+@media screen and (max-width: 541px) {	
+	body {
+		padding-top: 60px;
+	}
+
+	article.container {
+		margin-top: 0px;
+	}
+
 	.banner {
 		padding: 10% 0;
 	}
@@ -121,9 +131,7 @@ article.container {
 	.carousel-indicators {
 		bottom: -2%;
 	}
-	
-
-	
+		
 	.reserva {
 		background-color: rgba(0,0,0,0.4);
 		background-blend-mode: multiply;
@@ -247,128 +255,13 @@ article.container {
 	
 } */
 
-@media screen and (max-width: 768px) and (min-width: 668px){	
+@media screen and (max-width: 913px) and (min-width: 542px){	
 	.container {
 		padding: 0;
 		margin: 0;
 		width: 100%;
 		text-align: center;
 		overflow-x: hidden;
-	}
-	
-	.presentation {
-		background-color: rgba(0,0,0,0.5);
-		background-blend-mode: multiply;
-		background-image: url('../img/sinucadebico.jpg');
-		background-size: 100%;
-		width: 100%;
-		padding: 8% 0;
-	}
-
-	.presentation img {
-		display: block;
-		width: 15%;
-		margin: 0 auto;
-		margin-top: 2%;
-	}
-
-	.presentation p {
-		color: white;
-	    font-family: 'Open Sans', sans-serif;
-		font-size: 18px;
-		padding: 0 10%;
-		padding-top: 2%;
-		text-shadow: 2px 1px 5px black;
-		text-align: center;
-	}
-
-	.events {
-		padding: 3% 0;
-	}
-	
-	.events h1, .promo h1{
-		font-size: 24px;
-		padding-top: 6%;
-		padding: 0 10%;
-		margin: 0;
-		margin-bottom: 2%;
-	}
-
-	.events p, .promo p {
-	    font-family: 'Open Sans', sans-serif;
-		font-size: 18px;
-		padding: 0 10%;
-		margin-bottom: 6%;
-	}
-
-	.promo {
-		padding: 3% 0;
-		border-top: 1px dashed black;
-	}
-	
-	.promo a {
-		color: yellow;
-	}
-
-	.promo .card .carousel-caption {
-		top: 50%;
-	}
-	
-	.events .carousel-caption {
-		font-size: 24px;
-		font-weight: bold;
-		padding: 12% 0;
-	} 
-
-	.carousel-inner {
-		padding: 0;
-	}
-
-	.carousel-inner img {
-		background-color: rgba(0,0,0,0.5);
-		background-blend-mode: multiply;
-		width: 100%;
-	}
-
-	.carousel-caption {
-		width: 90%;
-		top: 15%;
-		left: 3%;
-		right: 0;
-		padding: 0;
-		text-shadow: 2px 2px 7px black;
-	}
-
-	.esq {
-		left: 6%;
-		width: 90%;
-	}
-	
-	.carousel-caption h1, .reserva h1 {
-		font-size: 24px;
-	}
-
-	.carousel-caption h2{
-	    font-family: 'Open Sans', sans-serif;
-		font-size: 18px;
-	}
-
-	.carousel-caption h3, .reserva h3{
-	    font-family: 'Open Sans', sans-serif;
-		font-size: 18px;
-	}
-	
-	.reserva {
-		background-color: rgba(0,0,0,0.4);
-		background-blend-mode: multiply;
-		background-image: url('../img/reserva.jpg');
-		background-size: 100%;
-		width: 100%;
-		padding: 0 8%;
-		padding-top: 7%;
-		padding-bottom: 9%;
-		color: white;
-		text-shadow: 2px 1px 5px black;
 	}
 }
 
