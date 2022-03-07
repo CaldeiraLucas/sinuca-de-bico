@@ -22,6 +22,7 @@
 }
 
 .nav li{
+    font-family: 'Bree Serif', serif;
     font-size: 1.2em;
     text-align: center;
     float: left;
@@ -78,9 +79,9 @@ main p {
 }
 
 @media screen and (max-width: 415px) {
-    body {
+    /* body {
         padding-top: 60px;
-    }
+    } */
 
     .navbar .container {
         padding: 5px 0;    

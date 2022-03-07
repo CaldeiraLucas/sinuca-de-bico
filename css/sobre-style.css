@@ -18,21 +18,17 @@ section.container {
 }
 
 h1 {
-  padding-top: 40px;
-  font-size: 32px;
-  text-align: center;
+  margin-top: 40px;
+}
+
+h2 {
+  color: #444;
+  opacity: .6;
+  font-size: 1.5em;
 }
 
 .jumbotron {
   background-image: url(http://68.media.tumblr.com/c5966172d3783c9ba69b90f666deaa63/tumblr_ncossvYhD41rtynt1o2_1280.jpg);
-}
-
-h2 {
-  color: white; 
-}
-
-h3 {
-  text-align: center;
 }
 
 .titulo {
@@ -62,11 +58,16 @@ h3 {
 
 .well h2 {
   margin: 0;
-  font-size: 24px;
+  color: white; 
+  opacity: 1;
 }
 
-@media screen and (max-width: 375px){
-	.info .well h2{
-		font-size: 20px;
-	}
+@media screen and (max-width: 541px){
+  article.container {
+    padding: 0 20px;
+  }
+
+  .sobre {
+    column-count: 1;
+  }
 }
